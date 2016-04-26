@@ -45,7 +45,7 @@ namespace Example
         string strAES256Key = "bbC2H19lkVbQDfakxcrtNMQdd0FloLyw";
         string strAES128Key = "xcrtNMQdd0FloLyw";
         string strIVector = "gqLOHUioQ0QjhuvI";
-        SecurityType securityType;
+        SecurityType securityType = SecurityType.DEFAULT;
 
         public EncryptionPage()
         {
