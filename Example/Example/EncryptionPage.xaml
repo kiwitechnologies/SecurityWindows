@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="Example.EncryptionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Example"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Encryption/Decryption" FontSize="28" Foreground="BurlyWood" HorizontalAlignment="Center" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+        <Pivot x:Name="myPivot" Grid.Row="1" Margin="0,10,0,0">
+            <PivotItem x:Name="pivot_item1">
+                <PivotItem.Header>
+                    <TextBlock Text="Text Encrypt" FontSize="34"></TextBlock>
+                </PivotItem.Header>
+                <Grid x:Name="ContentRoot" Margin="19,0,19,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Enter Text" FontSize="22"></TextBlock>
+                    <TextBox x:Name="txtMessage" Grid.Row="1" Margin="0,5,0,0"></TextBox>
+                    <Button x:Name="btnEncrypt" Content="Encrypt Text" Grid.Row="2" Margin="0,5,0,0" Click="btnEncrypt_Click"></Button>
+                    <Grid Grid.Row="3" x:Name="grdResult" Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="txtEncryptResult" Grid.Row="0" Margin="0,20,0,0" FontSize="24" Height="50"></TextBlock>
+                        <Button x:Name="btnDecrypt" Grid.Row="1" Content="Decrypt Text" Margin="0,0,0,0" Click="btnDecrypt_Click"></Button>
+                        <TextBlock x:Name="txtDecryptResult" Grid.Row="2" Margin="0,0,0,0" FontSize="24" Height="50"></TextBlock>
+                    </Grid>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="pivot_item2">
+                <PivotItem.Header>
+                    <TextBlock Text="Image Encrypt" FontSize="30"></TextBlock>
+                </PivotItem.Header>
+                <Grid Margin="19,9.5,19,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="img" Height="100" Width="100" Grid.Row="0" Source="image.jpg"></Image>
+                    <Button x:Name="btnEncryptImage" Content="Encrypt Image" Grid.Row="1" Margin="0,0,0,0" Click="btnEncryptImage_Click"></Button>
+                    <Grid Grid.Row="3" x:Name="grdResultImage" Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="txtEncryptImageResult" Grid.Row="0" Margin="0,20,0,0" FontSize="24" Height="50"></TextBlock>
+                        <Button x:Name="btnDecryptImage" Grid.Row="1" Content="Decrypt Image" Margin="0,0,0,0" Click="btnDecryptImage_Click"></Button>
+                        <TextBlock x:Name="txtDecryptImageResult" Grid.Row="2" Margin="0,0,0,0" FontSize="24" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
+                        <Image x:Name="imgNew" Height="100" Width="100" Grid.Row="2"></Image>
+                    </Grid>
+                </Grid>
+            </PivotItem>
+            <!-- Add more pivot items if your View calls for it -->
+        </Pivot>
+        <ListBox x:Name="lstOptions" Grid.Row="1" VerticalAlignment="Bottom" Visibility="Collapsed" SelectionChanged="lstOptions_SelectionChanged" Background="BurlyWood">
+            <ListBoxItem FontSize="20">AES-128 Encryption</ListBoxItem>
+            <ListBoxItem FontSize="20">AES-256 Encryption</ListBoxItem>
+            <ListBoxItem FontSize="20">Create MD5</ListBoxItem>
+        </ListBox>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="option" x:Name="btnMenu" Click="btnMenu_Click" Icon="List">
+            </AppBarButton>
+            <AppBarButton Icon="Clear" Label="Clear" x:Name="btnClear" Click="btnClear_Click"></AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
