@@ -10,7 +10,7 @@ Getting started
 1. Install Security Framework:
    ```bash
    
-   git clone https://github.com/KiwiTechLLC/TSG-Windows.git
+   git clone https://github.com/kiwitechnologies/SecurityWindows.git
    ```
 
 2. The Encryption Folder contains three folders: Encryption, Encryption.Test and EncryptionLibrary. Encryption contains the sample code on how to use the EncryptionLibrary and EncryptionLibrary folder contains the code to generate the dll.
@@ -28,5 +28,5 @@ Required frameworks:
 License
 ---------
 Securtiy Framework is KiwiTechnolgies Licensed  
-Copyright © 2016 
+Copyright ï¿½ 2016 
 
